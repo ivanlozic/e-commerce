@@ -1,12 +1,18 @@
 const Navbar = () => {
- return(
+  return (
     <nav>
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
+      <ul>
+        <li>Products</li>
+        <li>About us</li>
+        <li>Contact</li>
+        <li>New collection</li>
+      </ul>
+      <div>
+        <button>Log in</button>
+        <button>Sign up</button>
+      </div>
     </nav>
- )
-} 
+  )
+}
 
 export default Navbar
