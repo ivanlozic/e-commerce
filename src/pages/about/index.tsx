@@ -1,13 +1,13 @@
 import Navbar from '@/components/navbar/Navbar'
 
-export default function ContactPage() {
+export default function AboutUsPage() {
   return (
     <>
       <div>
         <Navbar />
       </div>
       <div>
-        Contact form
+        about us
       </div>
     </>
   )

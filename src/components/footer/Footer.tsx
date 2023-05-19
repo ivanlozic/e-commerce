@@ -2,13 +2,13 @@
 
 const Footer = () => {
     return (
-      <nav className="nav">
+      <footer>
         <ul>
           <li>About us</li>
           <li>Contact</li>
           <li>Created by Ivan Lozic</li>
         </ul>
-      </nav>
+      </footer>
     )
   }
   

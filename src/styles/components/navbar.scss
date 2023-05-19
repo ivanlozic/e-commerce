@@ -26,3 +26,17 @@ nav {
     margin-right: 10px;
   }
 }
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 70px;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid black;
+  width: 300px;
+  height: fit-content;
+
+}

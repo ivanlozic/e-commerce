@@ -5,12 +5,11 @@ import Link from 'next/link'
 
 const IMAGE_SIZE = 300
 
-export default function ProductItem() {
-  const productId = 0;
+export default function ProductItemPage() {
   return (
     <div className='productContainer'>
       <h2>Product name</h2>
-      <Link href={`/products/${productId}`}>
+      <Link href='/products/0'>
       <Image
         className='productContainer__img'
         src='/assets/images/1.jpg'
@@ -19,6 +18,7 @@ export default function ProductItem() {
         height={IMAGE_SIZE}
       />
       </Link>
+   
       <p>
         Description: Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         Fugit earum deserunt quod, natus debitis tempora? Sunt illum quos

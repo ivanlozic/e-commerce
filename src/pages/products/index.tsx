@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import Footer from '@/components/footer/Footer'
 import Navbar from '@/components/navbar/Navbar'
-import Product from '@/components/productItem/ProductItem'
+import ProductItem from '@/components/productItem/ProductItem'
 
 export default function ProductsPage() {
   return (
@@ -10,8 +8,19 @@ export default function ProductsPage() {
       <div>
         <Navbar />
       </div>
+      <div className='productsList'>
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+      </div>
+
       <div>
-        <Product />
+        <Footer />
       </div>
     </>
   )
