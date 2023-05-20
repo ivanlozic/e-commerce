@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 
 const SignInPage = (): JSX.Element => {
@@ -21,24 +22,27 @@ const SignInPage = (): JSX.Element => {
   }
 
   return (
-    <div>
+    <div className='container'>
+      <h1>Sign in</h1>
       <form>
         <div>
           <label>Enter your email</label>
           <input value={email} onChange={handleEmailChange} />
         </div>
+        {isValidEmail && showPasswordInput && (
+          <div>
+            <label>Enter your password</label>
+            <input type='password' />
+          </div>
+        )}
         <button onClick={handleContinueClick}>Continue</button>
       </form>
 
-      {isValidEmail && showPasswordInput && (
-        <div>
-          <label>Enter your password</label>
-          <input type='password' />
-        </div>
-      )}
-
       <p>New customer?</p>
-      <button>Create your account</button>
+
+      <Link href='/signUpPage'>
+        <button>Create your account </button>
+      </Link>
     </div>
   )
 }

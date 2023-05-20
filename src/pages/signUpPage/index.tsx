@@ -1,5 +1,5 @@
 const SignUpPage = (): JSX.Element => (
-  <div>
+  <div className="signUpContainer">
     <h1>Create account</h1>
     <form>
       <div>

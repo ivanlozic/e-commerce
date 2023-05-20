@@ -1,10 +1,22 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/navbar/Navbar'
 import Footer from '@/components/footer/Footer'
+import { useEffect, useState } from 'react'
+import Spinner from '@/components/spinner/Spinner'
 
 export default function Home() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  
   return (
     <>
       <Head>
@@ -17,7 +29,10 @@ export default function Home() {
         <Navbar />
       </nav>
       <main>
-        
+
+      {isLoading ? <Spinner /> : null}
+
+
       </main>
 
       <footer>
