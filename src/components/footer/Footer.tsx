@@ -6,8 +6,9 @@ const Footer = () => {
         <ul>
           <li>About us</li>
           <li>Contact</li>
-          <li>Created by Ivan Lozic</li>
         </ul>
+
+        <p>Created by Ivan Lozic</p>
       </footer>
     )
   }
