@@ -33,7 +33,7 @@ const Navbar = () => {
         </li>
       </ul>
       <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
-        <button>Sign in</button>
+        <button>Log in</button>
 
         {isDropdownOpen && (
           <ul className='dropdown'>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-const SignInPage = (): JSX.Element => {
+const LogInPage = (): JSX.Element => {
   const [email, setEmail] = useState('')
   const [isValidEmail, setIsValidEmail] = useState(false)
   const [showPasswordInput, setShowPasswordInput] = useState(false)
@@ -23,7 +23,7 @@ const SignInPage = (): JSX.Element => {
 
   return (
     <div className='container'>
-      <h1>Sign in</h1>
+      <h1>Log in</h1>
       <form>
         <div>
           <label>Enter your email</label>
@@ -47,4 +47,4 @@ const SignInPage = (): JSX.Element => {
   )
 }
 
-export default SignInPage
+export default LogInPage
