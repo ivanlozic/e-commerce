@@ -31,8 +31,7 @@ export default function Home() {
       <main>
 
       {isLoading ? <Spinner /> : null}
-
-
+      
       </main>
 
       <footer>

@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { useSelector } from 'react-redux';
+import { RootState } from '@/pages/reduxStore/store';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const cartItems = useSelector((state: RootState) => state.cart);
 
   const handleMouseOver = () => {
     setIsDropdownOpen(true)
@@ -38,7 +41,7 @@ const Navbar = () => {
         {isDropdownOpen && (
           <ul className='dropdown'>
             <li>
-              <Link href='/signInPage'>Sign in</Link>
+              <Link href='/logInPage'>Sign in</Link>
             </li>
             <li>
               New customer? <Link href='/signUpPage'> Start here</Link>
@@ -48,7 +51,7 @@ const Navbar = () => {
       </div>
       <div className='cart'>
         <div className='cart__content'>
-          <p>0</p>
+          <p>{cartItems.length}</p>
           <Image
             src='/assets/images/cart.png'
             alt='cart'

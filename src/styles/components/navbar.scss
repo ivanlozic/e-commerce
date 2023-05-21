@@ -40,7 +40,7 @@ nav {
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: 0;
+    right: 30px;
     top: 70px;
     background-color: white;
     color: black;
@@ -48,6 +48,7 @@ nav {
     border: 2px solid black;
     width: 300px;
     height: fit-content;
+    z-index: 1;
     li {
       margin: 10px 0;
     }
@@ -57,17 +58,18 @@ nav {
     }
   }
 
-  .cart{
+  .cart {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
-    &__content{
+    &__content {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 15px;
 
-      p{
+      p {
         margin-right: 5px;
       }
     }
