@@ -1,4 +1,18 @@
-.productsList{
+.products{
     display: flex;
-    flex-wrap: wrap;
+
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    &__cart{
+        width: 25%;
+        margin: 50px 25px;
+    }
+
+
 }
+
+
