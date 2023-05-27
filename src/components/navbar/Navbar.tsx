@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { useSelector } from 'react-redux';
-import { RootState } from '@/pages/reduxStore/store';
-
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/pages/reduxStore/store'
+import { login, logout } from '@/pages/reduxStore/reducers/authReducer'
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const cartItems = useSelector((state: RootState) => state.cart);
+  const cartItems = useSelector((state: RootState) => state.cart)
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
+  const dispatch = useDispatch()
 
   const handleMouseOver = () => {
     setIsDropdownOpen(true)
@@ -14,6 +16,10 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setIsDropdownOpen(false)
+  }
+  const handleLogout = () => {
+    // Handle the logout logic here
+    dispatch(logout())
   }
 
   return (
@@ -36,17 +42,42 @@ const Navbar = () => {
         </li>
       </ul>
       <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
-        <button>Log in</button>
-
-        {isDropdownOpen && (
-          <ul className='dropdown'>
-            <li>
-              <Link href='/logInPage'>Sign in</Link>
-            </li>
-            <li>
-              New customer? <Link href='/signUpPage'> Start here</Link>
-            </li>
-          </ul>
+        {isLoggedIn ? (
+          <div>
+            <Image
+              src='/assets/images/profile-icon.png'
+              alt='Profile'
+              width={30}
+              height={30}
+            />
+            {isDropdownOpen && (
+              <ul className='dropdown'>
+                <li>
+                  <Link href='/edit-profile'>Edit Profile</Link>
+                </li>
+                <li>
+                  <Link href='/my-reservations'>My Reservations</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </ul>
+            )}
+          </div>
+        ) : (
+          <div>
+            <button>Log in</button>
+            {isDropdownOpen && (
+              <ul className='dropdown'>
+                <li>
+                  <Link href='/logInPage'>Sign in</Link>
+                </li>
+                <li>
+                  New customer? <Link href='/signUpPage'> Start here</Link>
+                </li>
+              </ul>
+            )}
+          </div>
         )}
       </div>
       <div className='cart'>
