@@ -1,11 +1,29 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../reduxStore/reducers/cartReducer';
 
 
 const IMAGE_SIZE = 300
 
 export default function ProductItemPage() {
+
+  const productId = 1;
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const product = {
+      id: productId,
+      name: 'Product name',
+      description: 'dasdas',
+      price: 36,
+      quantity:1,
+      image: '/assets/images/1.jpg'
+    };
+
+    dispatch(addItemToCart(product));
+  };
   return (
     <div className='productContainer'>
       <h2>Product name</h2>
@@ -26,7 +44,7 @@ export default function ProductItemPage() {
       </p>
       <div className='productContainer__buttonBox'>
         <p>Price: 36e</p>
-        <button>Add to cart</button>
+        <button onClick={handleAddToCart}>Add to cart</button>
       </div>
     </div>
   )

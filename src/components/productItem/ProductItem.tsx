@@ -10,14 +10,14 @@ export default function ProductItem() {
   const productId = 1;
   const dispatch = useDispatch();
 
-
   const handleAddToCart = () => {
     const product = {
       id: productId,
       name: 'Product name',
       description: 'dasdas',
       price: 36,
-      quantity:1
+      quantity:1,
+      image: '/assets/images/1.jpg'
     };
 
     dispatch(addItemToCart(product));

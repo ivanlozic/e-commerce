@@ -45,7 +45,7 @@ const Navbar = () => {
         {isLoggedIn ? (
           <div>
             <Image
-              src='/assets/images/profile-icon.png'
+              src='/assets/images/profile.jpg'
               alt='Profile'
               width={30}
               height={30}
