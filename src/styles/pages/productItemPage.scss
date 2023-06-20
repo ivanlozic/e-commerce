@@ -44,17 +44,32 @@
       }
     }
   
+
+    &__textContainer{
+      margin-left: 30px;
+    }
     &__buttonBox {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+
+      &-clicked{
+        background-color: green;
+        transform: scale(1.1);
+      }
+
+      &-quantity{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
   
       button {
         padding: 15px;
         border: none;
         border-radius: 10px;
-        margin-left: 20px;
+        margin: 15px;
         cursor: pointer;
       }
     }
