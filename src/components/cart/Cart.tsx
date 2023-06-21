@@ -5,14 +5,31 @@ import {
 } from '@/pages/reduxStore/reducers/cartReducer'
 import { RootState } from '@/pages/reduxStore/store'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import ReactModal from 'react-modal'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Cart = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const cartItems = useSelector((state: RootState) => state.cart)
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
   const dispatch = useDispatch()
 
   const handleDeleteItemFromCart = (item: number) => {
     dispatch(removeItemFromCart(item))
+  }
+
+  const openModal = () => {
+    if (!isLoggedIn) {
+      setIsModalOpen(true)
+    } else {
+      console.log('Checkout Page')
+    }
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
   }
 
   return (
@@ -63,11 +80,26 @@ const Cart = () => {
             </div>
           ))}
           <div className='cartContainer__checkout'>
-            <button className='cartContainer__checkout-button'>
+            <button
+              className='cartContainer__checkout-button'
+              onClick={openModal}
+            >
               Proceed to checkout
             </button>
           </div>
         </div>
+      )}
+
+      {!isLoggedIn && (
+        <ReactModal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel='Login Modal'
+        >
+          <h2>Please log in to proceed to checkout</h2>
+          <Link href='/logInPage'>Log in</Link>
+          <button onClick={closeModal}>Close</button>
+        </ReactModal>
       )}
     </div>
   )
