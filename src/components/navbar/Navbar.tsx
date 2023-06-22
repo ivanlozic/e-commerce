@@ -4,8 +4,11 @@ import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/pages/reduxStore/store'
 import { login, logout } from '@/pages/reduxStore/reducers/authReducer'
+import ReactModal from 'react-modal'
+import Cart from '../cart/Cart'
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const cartItems = useSelector((state: RootState) => state.cart)
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
   const dispatch = useDispatch()
@@ -20,6 +23,14 @@ const Navbar = () => {
   const handleLogout = () => {
     // Handle the logout logic here
     dispatch(logout())
+  }
+
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
   }
 
   return (
@@ -80,7 +91,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <div className='cart'>
+      <div className='cart' onClick={() => setIsModalOpen(true)}>
         <div className='cart__content'>
           <p>{cartItems.length}</p>
           <Image
@@ -92,6 +103,17 @@ const Navbar = () => {
         </div>
         <h3>Cart</h3>
       </div>
+
+      <ReactModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel='Cart Modal'
+        className='cart__modal'
+        ariaHideApp={false}
+      >
+        <Cart />
+        <button className='cart__modal-button' onClick={closeModal}>Close</button>
+      </ReactModal>
     </nav>
   )
 }

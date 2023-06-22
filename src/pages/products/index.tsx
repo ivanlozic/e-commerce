@@ -14,11 +14,6 @@ export default function ProductsPage() {
         <ProductItem />
         <ProductItem />
         <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
       </div>
       <div className='products__cart'>
         <Cart />

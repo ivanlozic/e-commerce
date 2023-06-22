@@ -3,10 +3,14 @@ import Navbar from '@/components/navbar/Navbar'
 import Footer from '@/components/footer/Footer'
 import { useEffect, useState } from 'react'
 import Spinner from '@/components/spinner/Spinner'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Carousel from '@/components/carousel/Carousel'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
@@ -27,7 +31,10 @@ export default function Home() {
         <nav>
           <Navbar />
         </nav>
-        <main>{isLoading ? <Spinner /> : null}</main>
+        <main>
+          {isLoading ? <Spinner /> : null}
+          <Carousel />
+        </main>
 
         <footer>
           <Footer />
